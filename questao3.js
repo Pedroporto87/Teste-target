@@ -133,10 +133,18 @@ var max = Math.max(...arr)
 console.log(max)
 
 //Resposta C
-var media = arr.reduce(function(acc, value){
-	return acc + value/30
+var soma = arr.reduce(function(acc, value){
+	return acc + value
 },0);
-console.log(media)
+console.log(soma)
+
+var mediaValida = data.filter(e => (e.valor > 0))
+.map(function(data){
+	return data.dia
+})
+var totalDiasValidos = mediaValida.length
+var media = soma/totalDiasValidos
+//console.log(media)
 var bigResults = data.filter(function(e){
 	return e.valor > media
 })
