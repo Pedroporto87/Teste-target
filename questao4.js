@@ -21,3 +21,25 @@ const distribuidora = [
     }
     
 ]
+const faturamentoLimpo = distribuidora.map (e => {
+    return {
+        estado: e.estado,
+        faturamento: parseFloat(e.faturamento.replace("R$", ''))
+    };
+});
+//console.log(faturamentoLimpo)
+var soma = faturamentoLimpo.map(e =>(e.faturamento)).reduce(function(acc, value){
+	return acc + value
+},0);
+//console.log(soma)
+var porcentagem = faturamentoLimpo.map(e =>{
+    return {
+        estado: e.estado,
+        faturamento: ((e.faturamento/soma)*100).toFixed(2)
+    }
+})
+console.log(porcentagem)
+
+
+
+
